@@ -15,6 +15,16 @@
   height: 88px;
 }
 
+/* Em breve...   */
+.btn-seach{
+  /* background-color: red; */
+  border: none ;
+  height: 30px;
+  width: 30px;
+  margin: 20px -55px;
+  padding: 11px;
+}
+
 .seach-input {
   border: none;
   border-radius: 5px;
@@ -25,7 +35,7 @@
 }
 
 #icons-search {
-  margin: -62px;
+  margin: 30px 26px;
 }
 
 .container-title {

@@ -10,6 +10,11 @@ const sectionProducts = document.querySelector('.products'); // section que vai 
 document.querySelector('.cep-button').addEventListener('click', searchCep);
 const olCartProducts = document.querySelector('.cart__products'); // Lista que vai aparecer no carrinho
 
+// Em breve: Ter um evento de cliclar no botão e aparecer os produtos 
+// const seachInput = document.querySelector('.seach-input');
+// const btnSeach = document.querySelector('.btn-seach')
+
+
 // funções:
 
 // Função para mostrar o erro na tela quando não for carregado
@@ -27,7 +32,7 @@ async function showProductList() {
     createParagraph.innerText = 'carregando...';
     createParagraph.className = 'loading';
     sectionProducts.appendChild(createParagraph);
-    const fetch = await fetchProductsList('computador'); // vai pegar os dados da API
+    const fetch = await fetchProductsList('Computador'); // vai pegar os dados da API
     fetch.forEach((produto) => {
       // Vai percorrer todos os elementos
       createParagraph.remove(); // vai remover o elemento createParagraph
