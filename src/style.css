@@ -298,13 +298,13 @@
 }
 
 .cart-button:hover {
-  background-color: rgb(109, 41, 212);
+  background-color: rgb(25, 244, 255);
   box-shadow: 0 0 0.2rem white,
     0 0 0.2rem white,
-    0 0 1.4rem -5px rgb(131, 48, 255),
-    0 0 0.8rem -5px rgb(131, 48, 255),
-    0 0 2.4rem -5px rgb(131, 48, 255),
-    inset 0 0 2rem rgb(61, 11, 136);
+    0 0 1.4rem -5px ,rgb(0, 213, 226)
+    0 0 0.8rem -5px rgb(0, 213, 226),
+    0 0 2.4rem -5px rgb(0, 213, 226),
+    inset 0 0 2rem rgb(0, 138, 202);
 }
 
 .cep-input {
@@ -318,7 +318,7 @@
   height: 30px;
   font-size: 16px;
   font-weight: 700;
-  margin: 10px auto;
+  margin: 20px auto;
 }
 
 .hidden {
