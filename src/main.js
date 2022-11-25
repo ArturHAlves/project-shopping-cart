@@ -1,19 +1,19 @@
 import { searchCep } from './helpers/cepFunctions';
 import './style.css';
 import { fetchProductsList, fetchProduct } from './helpers/fetchFunctions';
-import { createProductElement,
-  createCartProductElement, totalPrice } from './helpers/shopFunctions';
+import {
+  createProductElement,
+  createCartProductElement,
+  totalPrice,
+} from './helpers/shopFunctions';
 import { getSavedCartIDs } from './helpers/cartFunctions';
 
 // buscar elementos:
 const sectionProducts = document.querySelector('.products'); // section que vai aparecer os produtos
-document.querySelector('.cep-button').addEventListener('click', searchCep);
+document.querySelector('.cep-button').addEventListener('click', searchCep); // Função CEP
 const olCartProducts = document.querySelector('.cart__products'); // Lista que vai aparecer no carrinho
-
-// Em breve: Ter um evento de cliclar no botão e aparecer os produtos 
-// const seachInput = document.querySelector('.seach-input');
-// const btnSeach = document.querySelector('.btn-seach')
-
+const seachInput = document.querySelector('.seach-input'); // Input de busca
+const btnSeach = document.querySelector('.btn-seach'); // Botão que vai dar o evento da busca
 
 // funções:
 
@@ -21,21 +21,22 @@ const olCartProducts = document.querySelector('.cart__products'); // Lista que v
 function showError() {
   const createH3 = document.createElement('h3');
   createH3.className = 'error';
-  createH3.innerText = 'Algum erro ocorreu, recarregue a página e tente novamente';
+  createH3.innerText =
+    'Algum erro ocorreu, recarregue a página e tente novamente';
   sectionProducts.appendChild(createH3);
 }
 
 // Função para mostrar os produtos na tela
-async function showProductList() {
+async function showProductList(param) {
   try {
     const createParagraph = document.createElement('p'); // criar o elemento p
     createParagraph.innerText = 'carregando...';
     createParagraph.className = 'loading';
     sectionProducts.appendChild(createParagraph);
-    const fetch = await fetchProductsList('Computador'); // vai pegar os dados da API
+    const fetch = await fetchProductsList(param); // vai pegar os dados da API
     fetch.forEach((produto) => {
-      // Vai percorrer todos os elementos
       createParagraph.remove(); // vai remover o elemento createParagraph
+      // Vai percorrer todos os elementos
       sectionProducts.appendChild(createProductElement(produto));
     });
   } catch (error) {
@@ -61,5 +62,17 @@ async function saveProductCart() {
   });
 }
 
+btnSeach.addEventListener('click', seach);
+
+async function seach() {
+  const produtosList = document.querySelector('.products');
+  while (produtosList.firstChild) {
+    produtosList.removeChild(produtosList.firstChild);
+  }
+
+  await showProductList(seachInput.value);
+}
+
 saveProductCart();
-showProductList();
+seach();
+// showProductList(); // substituido pelo seach
