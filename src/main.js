@@ -26,16 +26,25 @@ function showError() {
   sectionProducts.appendChild(createH3);
 }
 
+function showLoading(){
+  const createParagraph = document.createElement('p'); // criar o elemento p
+  createParagraph.innerText = 'carregando...';
+  createParagraph.className = 'loading';
+  sectionProducts.appendChild(createParagraph);
+}
+
+function removeLoading(){
+  document.querySelector('.loading').remove();
+};
+
 // Função para mostrar os produtos na tela
 async function showProductList(param) {
   try {
-    const createParagraph = document.createElement('p'); // criar o elemento p
-    createParagraph.innerText = 'carregando...';
-    createParagraph.className = 'loading';
-    sectionProducts.appendChild(createParagraph);
+    showLoading(); // Vai mostrar uma mensagem de loading
     const fetch = await fetchProductsList(param); // vai pegar os dados da API
+    removeLoading() // Quando aparecer os produtos, vai remover a msg de loading 
     fetch.forEach((produto) => {
-      createParagraph.remove(); // vai remover o elemento createParagraph
+      
       // Vai percorrer todos os elementos
       sectionProducts.appendChild(createProductElement(produto));
     });
