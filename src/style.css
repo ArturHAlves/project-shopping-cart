@@ -7,12 +7,34 @@
 
 .header {
   position: relative;
-  background-color: rgb(65, 25, 127);
+  background-color: rgb(153 143 141);
   box-sizing: border-box;
   display: flex;
   align-items: center;
   width: 100%;
-  height: 90px;
+  height: 88px;
+}
+
+.btn-seach{
+  /* background-color: red; */
+  border: none ;
+  height: 36px;
+  width: 30px;
+  margin: 20px -55px;
+  padding: 13px;
+}
+
+.seach-input {
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px 20px;
+  width: 53%;
+  height: 100%;
+}
+
+#icons-search {
+  margin: 30px 26px;
 }
 
 .container-title {
@@ -20,8 +42,8 @@
 }
 
 .logo {
-  width: 250px;
-  margin-left: 30px;
+  width: 200px;
+  margin-left: 40px;
 }
 
 .title {
@@ -269,19 +291,19 @@
   font-size: 16px;
   font-weight: 700;
   border-radius: 5px;
-  background-color: rgb(65, 25, 127);
+  background-color: rgb(31, 31, 31);
   cursor: pointer;
   transition: box-shadow 0.2s ease;
 }
 
 .cart-button:hover {
-  background-color: rgb(109, 41, 212);
+  background-color: rgb(25, 244, 255);
   box-shadow: 0 0 0.2rem white,
     0 0 0.2rem white,
-    0 0 1.4rem -5px rgb(131, 48, 255),
-    0 0 0.8rem -5px rgb(131, 48, 255),
-    0 0 2.4rem -5px rgb(131, 48, 255),
-    inset 0 0 2rem rgb(61, 11, 136);
+    0 0 1.4rem -5px ,rgb(0, 213, 226)
+    0 0 0.8rem -5px rgb(0, 213, 226),
+    0 0 2.4rem -5px rgb(0, 213, 226),
+    inset 0 0 2rem rgb(0, 138, 202);
 }
 
 .cep-input {
@@ -295,7 +317,7 @@
   height: 30px;
   font-size: 16px;
   font-weight: 700;
-  margin: 10px auto;
+  margin: 20px auto;
 }
 
 .hidden {
@@ -324,6 +346,6 @@
 @media screen and ( max-width : 1400px ) {
 
   .cart {
-    height: 630px;
+    height: 528px;
   }
 }
