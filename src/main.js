@@ -38,10 +38,10 @@ function removeLoading(){
 };
 
 // Função para mostrar os produtos na tela
-async function showProductList(param) {
+async function showProductList() {
   try {
     showLoading(); // Vai mostrar uma mensagem de loading
-    const fetch = await fetchProductsList(param); // vai pegar os dados da API
+    const fetch = await fetchProductsList('computador'); // vai pegar os dados da API
     removeLoading() // Quando aparecer os produtos, vai remover a msg de loading 
     fetch.forEach((produto) => {
       
@@ -53,20 +53,16 @@ async function showProductList(param) {
   }
 }
 
-// FUnção para salvar os itens dentro do carrinho de compra
+// Função para salvar os itens dentro do carrinho de compra
 async function saveProductCart() {
   const save = getSavedCartIDs(); // É um array de IDS (Consigo usar HOF)
   const getIDS = save.map(async (id) => {
-    // É possível colocar async dentro de hof
     const fetch = fetchProduct(id);
-    // console.log(fetch);
     return fetch;
   });
   const response = await Promise.all(getIDS);
-  // console.log(response) // Está retornando um array
   response.forEach((productCart) => {
     totalPrice(productCart.price);
-    // ForEach não retorna nada
     olCartProducts.appendChild(createCartProductElement(productCart));
   });
 }
@@ -84,4 +80,3 @@ async function seach() {
 
 saveProductCart();
 seach();
-// showProductList(); // substituido pelo seach

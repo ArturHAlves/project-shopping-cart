@@ -49,14 +49,14 @@ export const getIdFromProduct = (product) => (
 
 // Elemento GLOBAL
 const span = document.querySelector('.total-price');
-let soma = parseFloat(span.textContent);
-// console.log(soma);
+let soma = Number(span.textContent);
 
 // Substrair preço produtos
 async function subProduct(ID) {
   const response = await fetchProduct(ID);
+
   soma -= response.price;
-  span.innerHTML = soma.toFixed(2);
+  span.textContent = Math.abs(soma.toFixed(2));
 }
 
 // Somar preço produto
