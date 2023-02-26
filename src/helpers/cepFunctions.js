@@ -6,7 +6,6 @@ export const getAddress = async (CEP) => { // Pega os dados da API de CEP
   const cepBrasil = await fetch(`${brasilAPI}/${CEP}`);
   const response = await Promise.any([cepAwesome, cepBrasil]); // Promise.any se algum não funcionar vai outro
   const data = await response.json();
-  // console.log(data);
   return data;
 };
 

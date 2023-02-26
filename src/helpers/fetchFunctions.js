@@ -6,7 +6,6 @@ export const fetchProduct = async (id) => {
   }
   const response = await fetch(`${itemsAPI}/${id}`);
   const data = await response.json();
-  // console.log(data);
   return data;
 };
 
@@ -18,6 +17,5 @@ export const fetchProductsList = async (busca) => { // Se a busca não existir v
   }
   const response = await fetch(`${API}${busca}`);
   const data = await response.json();
-  // console.log(data);
   return data.results;
 };
